@@ -28,12 +28,18 @@ vim config/autoload/local.php
 php composer.phar install
 ```
 
-4 . Create database schema
+4 . Set permissions to files
+
+```
+chmod -R 0777 ./data/cache/
+```
+
+5 . Create database schema
 
 ```
 php vendor/doctrine/doctrine-module/bin/doctrine-module.php orm:schema-tool:update --verbose --force
 ```
-5 . That's all! Just use:
+6 . That's all! Just use:
 
 ```
 php app.php help
