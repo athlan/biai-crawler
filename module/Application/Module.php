@@ -55,6 +55,11 @@ class Module implements
         return array(
             // Describe available commands
             'hello' => 'Hello',
+            
+            'grab policja [--dateFrom] [--dateTo] [--nocache]' => 'Grab stats from policja.pl',
+            array('--dateFrom', '(optional) date to start, e.x.: "2 weeks ago", "1 year ago", default 2 weeks ago'),
+            array('--dateTo', '(optional) date to stop, default now'),
+            array('--nocache', '(optional) disables the cached pages downloaded previously'),
         );
     }
 }

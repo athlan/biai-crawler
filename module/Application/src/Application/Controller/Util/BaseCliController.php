@@ -29,4 +29,6 @@ abstract class BaseCliController extends AbstractActionController
     public function getConfig() {
         return $this->getServiceLocator()->get('Config');
     }
+    
+    use \Application\Util\CliOutput;
 }

@@ -21,6 +21,6 @@ class IndexController extends Util\BaseCliController
 {
     public function indexAction()
     {
-        return "hello";
+        return "ehlo!";
     }
 }

@@ -18,7 +18,37 @@ return array(
     
     'controllers' => array(
         'invokables' => array(
-            'Controller\Index' => 'Application\Controller\IndexController'
+            'Controller\Index' => 'Application\Controller\IndexController',
+            'Controller\Policja' => 'Application\Controller\PolicjaController',
+        ),
+    ),
+    
+    'service_manager' => array(
+        'invokables' => array(
+            'Model\EntityPolicja' => 'Application\Model\EntityPolicjaModel',
+            'Model\RemotePolicja' => 'Application\Model\RemotePolicjaModel',
+        ),
+        
+        'factories' => array(
+            'cacheContainer' => function () {
+                return \Zend\Cache\StorageFactory::factory(array(
+                    'adapter' => array(
+                        'name' => 'filesystem',
+                        'options' => array(
+                            'cache_dir' => __DIR__ . '/../../../data/cache',
+                            'ttl' => 100
+                        ),
+                    ),
+                    'plugins' => array(
+                        array(
+                            'name' => 'serializer',
+                            'options' => array(
+                
+                            )
+                        )
+                    )
+                ));
+            },
         ),
     ),
     

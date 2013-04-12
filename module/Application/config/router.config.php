@@ -18,4 +18,14 @@ return array(
             ),
         ),
     ),
+    
+    'grab-policja' => array(
+        'options' => array(
+            'route'    => 'grab policja [--dateFrom=] [--dateTo=] [--nocache]',
+            'defaults' => array(
+                'controller' => 'Controller\Policja',
+                'action'     => 'index'
+            ),
+        ),
+    ),
 );
