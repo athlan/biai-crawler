@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Stats.
  *
  * @ORM\Entity
- * @ORM\Table(name="facts_stats_policja")
+ * @ORM\Table(name="facts_stats_policja", uniqueConstraints={@ORM\UniqueConstraint(columns={"entry_date"})})
  */
 class StatsPolicjaEntity extends Util\AbstractEntity
 {

@@ -17,14 +17,18 @@ use Zend\View\Model\ViewModel;
  * @author Athlan
  *
  */
-class PolicjaController extends Util\BaseCliController
+class PogodaController extends Util\BaseCliController
 {
     public function indexAction()
     {
-        $model = $this->getModelRemotePolicja();
-        $modelEntity = $this->getModelEntityPolicja();
+        $model = $this->getModelRemotePogoda();
+        $modelEntity = $this->getModelEntityPogoda();
         
         $nocache = $this->params()->fromRoute('nocache', false);
+        
+        $city = $this->params()->fromRoute('city', null);
+        if(null === $city)
+            throw new \Exception("No city provided");
         
         $dateFrom = $this->params()->fromRoute('dateFrom');
         if(null === $dateFrom)
@@ -48,7 +52,7 @@ class PolicjaController extends Util\BaseCliController
             $this->_printLine();
             $this->_printLine("Getting " . $date . "...");
             
-            $entity = $model->getStatsForDate($dateFrom, !$nocache);
+            $entity = $model->getStatsForDate($city, $dateFrom, !$nocache);
             
             $this->_printLine(round($i / $diff->d * 100, 2) . '% completed.');
             
@@ -74,18 +78,18 @@ class PolicjaController extends Util\BaseCliController
     }
     
     /**
-     * @return \Application\Model\RemotePolicjaModel
+     * @return \Application\Model\RemotePogodaModel
      */
-    public function getModelRemotePolicja()
+    public function getModelRemotePogoda()
     {
-        return $this->getServiceLocator()->get('Model\RemotePolicja');
+        return $this->getServiceLocator()->get('Model\RemotePogoda');
     }
     
     /**
-     * @return \Application\Model\EntityPolicjaModel
+     * @return \Application\Model\EntityPogodaModel
      */
-    public function getModelEntityPolicja()
+    public function getModelEntityPogoda()
     {
-        return $this->getServiceLocator()->get('Model\EntityPolicja');
+        return $this->getServiceLocator()->get('Model\EntityPogoda');
     } 
 }

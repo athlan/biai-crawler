@@ -20,6 +20,7 @@ return array(
         'invokables' => array(
             'Controller\Index' => 'Application\Controller\IndexController',
             'Controller\Policja' => 'Application\Controller\PolicjaController',
+            'Controller\Pogoda' => 'Application\Controller\PogodaController',
         ),
     ),
     
@@ -27,6 +28,9 @@ return array(
         'invokables' => array(
             'Model\EntityPolicja' => 'Application\Model\EntityPolicjaModel',
             'Model\RemotePolicja' => 'Application\Model\RemotePolicjaModel',
+            
+            'Model\EntityPogoda' => 'Application\Model\EntityPogodaModel',
+            'Model\RemotePogoda' => 'Application\Model\RemotePogodaModel',
         ),
         
         'factories' => array(

@@ -13,7 +13,7 @@ class AbstractWebContentGrabberModel implements \Zend\ServiceManager\ServiceLoca
     public function performRequest($url, $cacheEnabled = true) {
         
         $cache = $this->createCache();
-        $cacheKey = md5("policja/url/" . $url);
+        $cacheKey = md5("url/" . $url);
         
         if($cacheEnabled) {
             $this->_printLine('Loading from cache ' . $cacheKey . ' ' . $url);

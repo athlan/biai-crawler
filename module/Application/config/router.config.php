@@ -28,4 +28,14 @@ return array(
             ),
         ),
     ),
+    
+    'grab-pogoda' => array(
+        'options' => array(
+            'route'    => 'grab pogoda [--dateFrom=] [--dateTo=] [--nocache] <city>',
+            'defaults' => array(
+                'controller' => 'Controller\Pogoda',
+                'action'     => 'index'
+            ),
+        ),
+    ),
 );
