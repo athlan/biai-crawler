@@ -7,6 +7,19 @@ biai-crawler
 - PHP CURL support `php_curl` extension
 - PostgreSQL 9.1 or above
 
+## Usage
+
+Type help to get usage info
+
+```
+php app.php help
+```
+
+The application generates a lot of cache files, bewaring of multiple and frequent requests to the same URL's. To flush this cache just type:
+```
+rm -R ./data/cahce/zfcache*
+```
+
 ## Installation
 
 1 . Clone the git project
