@@ -57,9 +57,12 @@ class Module implements
             'hello' => 'Hello',
             
             'grab policja [--dateFrom] [--dateTo] [--nocache]' => 'Grab stats from policja.pl',
+            'grab pogoda [--dateFrom] [--dateTo] [--nocache] cityName' => 'Grab stats from wunderground.com',
+            
             array('--dateFrom', '(optional) date to start, e.x.: "2 weeks ago", "1 year ago", default 2 weeks ago'),
             array('--dateTo', '(optional) date to stop, default now'),
             array('--nocache', '(optional) disables the cached pages downloaded previously'),
+            array('cityName', '(required) name of city'),
         );
     }
 }

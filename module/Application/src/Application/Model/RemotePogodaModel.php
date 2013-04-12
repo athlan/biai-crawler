@@ -43,7 +43,7 @@ class RemotePogodaModel extends Util\AbstractWebContentGrabberModel
      */
     private function parse(\DateTime $date, $contents) {
         $result = [
-            'date' => null,
+            'date' => $date,
             'temp_avg' => 0,
             'temp_min' => 0,
             'temp_max' => 0,
