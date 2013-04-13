@@ -52,6 +52,13 @@ chmod -R 0777 ./data/cache/
 ```
 php vendor/doctrine/doctrine-module/bin/doctrine-module.php orm:schema-tool:update --verbose --force
 ```
+or
+```
+cd scripts
+chmod +x doctrine-db-update.sh
+./doctrine-db-update.sh
+cd ..
+```
 6 . That's all! Just use:
 
 ```
