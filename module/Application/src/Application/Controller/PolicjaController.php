@@ -39,20 +39,21 @@ class PolicjaController extends Util\BaseCliController
         $this->_printLine("Grabbing data from policja.pl");
         $this->_printLine("Date from " . $dateFrom->format("Y-m-d") . " to " . $dateTo->format("Y-m-d") . "");
         
-        $diff = $dateFrom->diff($dateTo);
+        $currTime = $dateFrom->getTimestamp();
+        $days = ceil(($dateTo->getTimestamp() - $dateFrom->getTimestamp()) / (3600 * 24));
         
         $i = 0;
-        while($i <= $diff->d) {
-            $date = $dateFrom->format('Y-m-d');
+        while($i < $days) {
+            $date = date('Y-m-d', $currTime);
             
             $this->_printLine();
             $this->_printLine("Getting " . $date . "...");
             
-            $entity = $model->getStatsForDate($dateFrom, !$nocache);
+            $entity = $model->getStatsForDate(new \DateTime($date), !$nocache);
             
-            $this->_printLine(round($i / $diff->d * 100, 2) . '% completed.');
+            $this->_printLine(round($i / $days * 100, 2) . '% completed.');
             
-            $dateFrom->modify('+1 day');
+            $currTime = strtotime($date . ' +1 day');
             ++$i;
             
             if(null !== $entity) {
